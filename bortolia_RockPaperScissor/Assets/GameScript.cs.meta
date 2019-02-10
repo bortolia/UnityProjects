@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f3292d9e0c4464089b709c5489d3e015
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - rockButton: {fileID: 3857187241666290995, guid: 476aeba110fa446e0b29a9c8f20b90b0,
+      type: 3}
+  - paperButtun: {instanceID: 0}
+  - scissorButton: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
