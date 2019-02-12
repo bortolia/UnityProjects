@@ -14,7 +14,7 @@ public class GameScript : MonoBehaviour
     //Add text after win/lose of each round
     public Text ResultText;
     public Text DescriptionText;
-    //images
+    //Images
     public Sprite RockImage, PaperImage, ScissorImage;
     public Image YouImage, ComputerImage;
 
@@ -59,8 +59,8 @@ public class GameScript : MonoBehaviour
     {
         if(state == "none") {
 
-            //Invoke("ClearText", 5f);
             if(gamesPlayed == 10) {
+                //After 10 games are played, finds all buttons and disables them, then restarts game after 6 seconds
                 GameObject[] allButtons = GameObject.FindGameObjectsWithTag("UserButton");
                 foreach(GameObject obj in allButtons) {
                     obj.GetComponent<Button>().interactable = false;
@@ -102,7 +102,6 @@ public class GameScript : MonoBehaviour
                     ResultText.text = "YOU WIN";
                     DescriptionText.text = char.ToUpper(playerChoice[0]) + playerChoice.Substring(1) + " beats " + char.ToUpper(computerChoice[0]) + computerChoice.Substring(1);
 
-                    //print("YOU WIN: " + char.ToUpper(playerChoice[0]) + playerChoice.Substring(1) + " beats " + char.ToUpper(computerChoice[0]) + computerChoice.Substring(1));
                     youScore += 1;
                     YouScoreGT.text = "Your Score: " + youScore.ToString();
                 }
@@ -110,7 +109,6 @@ public class GameScript : MonoBehaviour
                     ResultText.text = "YOU LOSE";
                     DescriptionText.text = char.ToUpper(playerChoice[0]) + playerChoice.Substring(1) + " loses to " + char.ToUpper(computerChoice[0]) + computerChoice.Substring(1);
 
-                    //print("YOU LOSE: " + char.ToUpper(playerChoice[0]) + playerChoice.Substring(1) + " loses to " + char.ToUpper(computerChoice[0]) + computerChoice.Substring(1));
                     computerScore += 1;
                     ComputerScoreGT.text = "Computer Score: " + computerScore.ToString();
                 }
@@ -118,7 +116,6 @@ public class GameScript : MonoBehaviour
             else {
                 ResultText.text = "TIE GAME";
                 DescriptionText.text = "";
-                //print("Tie game");
             }
 
             gamesPlayed++;
@@ -181,9 +178,6 @@ public class GameScript : MonoBehaviour
         YouImage.GetComponent<Image>().color = YouImageColor;
         ComputerImageColor.a = 1f;
         ComputerImage.GetComponent<Image>().color = ComputerImageColor;
-
-        // Change the state in Update() to commence evaluation of the current turn
-        //state = "evaluate";
     }
 
     public void EndGame()
